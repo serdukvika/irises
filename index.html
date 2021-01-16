@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #basket {
+        position: relative;
+        width: 250px;
+        height: 450px;
+        float: right;
+        border: 1px solid;
+        padding: 10px;
+      }
+
+      #cart {
+        width: 250px;
+        height: 400px;
+        padding: 10px;
+        background: tan;
+        margin-right: 10px;
+        margin-top: 10px;
+        box-sizing: border-box;
+        overflow: auto;
+      }
+
+      #sum {
+        position: absolute;
+        bottom: 5px;
+        left: 10px;
+      }
+      input[type="button"] {
+        position: absolute;
+        bottom: 5px;
+        right: 10px;
+      }
+
+      .product {
+        margin: 10px;
+      }
+
+      .product img {
+        width: 80px;
+      }
+
+      .mini {
+        width: 80px;
+        display: block;
+        margin-top: 10px;
+      }
+      .order {
+        position: absolute;
+        top: 100px;
+        left: calc((100% - 600px) / 2);
+        width: 600px;
+        background: rgb(224, 199, 165);
+        z-index: 9999;
+        box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="basket">
+      Корзина товаров
+      <div id="cart" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+      <div id="sum">Сумма: 0</div>
+      <input id="button_order" type="button" value="Оформить заказ" />
+    </div>
+
+    <div class="product">
+      <img
+        id="fl1"
+        src="images/strawberries.jpg"
+        draggable="true"
+        ondragstart="drag(event)"
+        data-text="Клубника"
+        data-price="10"
+      />
+      <div>
+        <a href="#">Клубника $10</a>
+      </div>
+    </div>
+    <div class="product">
+      <img
+        id="fl2"
+        src="images/3cbf3bd41c_1000.jpg"
+        draggable="true"
+        ondragstart="drag(event)"
+        data-text="Апельсин"
+        data-price="15"
+      />
+      <div>
+        <a href="#">Апельсин $15</a>
+      </div>
+    </div>
+    <script src="fruits.js"></script>
+  </body>
+</html>
